@@ -9,13 +9,16 @@ const Header = () => {
                 <Link to='/'>Home</Link>
             </li>
             <li className='font-semibold'>
-                <Link to='/services'>Services</Link>
-            </li>
-            <li className='font-semibold'>
                 <Link to='/about'>About</Link>
             </li>
             <li className='font-semibold'>
-                <Link to='/FAQ'>FAQ</Link>
+                <Link to='/services'>Services</Link>
+            </li>
+            <li className='font-semibold'>
+                <Link to='/contact'>Contact</Link>
+            </li>
+            <li className='font-semibold'>
+                <Link to='/blog'>Blog</Link>
             </li>
         </>
 
@@ -40,7 +43,9 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className='btn btn-outline btn-error'>Order</button>
+                <Link to='/login'>
+                    <button className='btn btn-outline btn-primary px-5'>Log in</button>
+                </Link>
             </div>
         </div>
     );
