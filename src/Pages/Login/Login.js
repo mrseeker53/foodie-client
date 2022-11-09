@@ -2,10 +2,13 @@ import React from 'react';
 import useTitle from '../../hooks/useTitle';
 import img from '../../assets/images/login/login.png';
 import { Link } from 'react-router-dom';
+import toggleSpinner from '../../hooks/toggleSpinner';
 
 const Login = () => {
     // Dynamic title using hooks
     useTitle('Log In');
+
+    toggleSpinner(true);
 
     return (
         <div className="hero w-full my-20">
