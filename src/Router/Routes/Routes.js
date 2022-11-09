@@ -6,7 +6,9 @@ import Contact from "../../Pages/Home/Contact/Contact";
 import Home from "../../Pages/Home/Home/Home";
 import Menu from "../../Pages/Home/Menu/Menu";
 import Login from "../../Pages/Login/Login";
+import SignUp from "../../Pages/SignUp/SignUp";
 
+// Create react router
 const router = createBrowserRouter([
     {
         path: '/',
@@ -35,6 +37,10 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/signup',
+                element: <SignUp></SignUp>
             }
         ]
     }

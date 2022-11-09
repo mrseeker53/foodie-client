@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
     // Dynamic title using hooks
-    useTitle('Log in');
+    useTitle('Log In');
 
     return (
         <div className="hero w-full my-20">
@@ -32,9 +32,10 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <input className="btn btn-primary" type="submit" value="Login" />
+                            <input className="btn btn-primary" type="submit" value="Log In" />
                         </div>
                     </form>
+                    {/* Sign Up link */}
                     <p className='text-center'>Create an account? <Link className='text-primary link-hover font-bold' to="/signup">Sign Up</Link> </p>
                 </div>
             </div>
