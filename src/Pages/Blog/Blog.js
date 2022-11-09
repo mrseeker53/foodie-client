@@ -1,9 +1,13 @@
 import React from 'react';
+import useTitle from '../../hooks/useTitle';
 
 const Blog = () => {
+    // Dynamic title using hooks
+    useTitle('Blog');
+
     return (
         // use grid
-        <div className='grid grid-cols-1 gap-5 my-10 mx-12 md:mx-36'>
+        <div className='grid grid-cols-1 gap-5 my-20 mx-12 md:mx-36'>
             <details className='bg-blue-50 rounded-lg flex justify-center pb-4 px-20 cursor-pointer'>
                 {/* question */}
                 <summary className='py-4 flex justify-between duration-200 ease-in'>
