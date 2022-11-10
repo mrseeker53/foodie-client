@@ -3,6 +3,8 @@ import useTitle from '../../hooks/useTitle';
 import img from '../../assets/images/login/login.png';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
     // Dynamic title using hooks
@@ -13,6 +15,9 @@ const Login = () => {
     const navigate = useNavigate();
 
     const from = location.state?.from?.pathname || '/';
+
+    const { providerLogin } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider()
 
     // Declare event handler
     const handleLogin = event => {
@@ -49,6 +54,17 @@ const Login = () => {
             .catch(error => console.log(error));
     }
 
+    // Declare provider handler
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true });
+            })
+            .catch(error => console.error(error))
+    }
+
     return (
         <div className="hero w-full my-20">
             <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
@@ -77,6 +93,10 @@ const Login = () => {
                             <input className="btn btn-primary" type="submit" value="Log In" />
                         </div>
                     </form>
+                    <hr />
+                    <div className="form-control my-6 mx-8">
+                        <button onClick={handleGoogleSignIn} className='btn btn-outline btn-primary'> <FaGoogle className='mr-2'></FaGoogle> Log In with Google</button>
+                    </div>
                     {/* Sign Up link */}
                     <p className='text-center'>Create an account? <Link className='text-primary link-hover font-bold' to="/signup">Sign Up</Link> </p>
                 </div>
