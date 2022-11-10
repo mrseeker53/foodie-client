@@ -11,6 +11,7 @@ const MenuCard = ({ menu }) => {
 
     return (
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
+            {/* Photo viewer */}
             <PhotoProvider>
                 <PhotoView src={img}>
                     <figure><img src={img} alt="" /></figure>

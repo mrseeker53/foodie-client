@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import MenuCard from '../Menu/MenuCard';
+import MenuCard from '../../Menu/MenuCard';
 
 const MenuItems = () => {
     const [menuItems, setMenuItems] = useState([]);

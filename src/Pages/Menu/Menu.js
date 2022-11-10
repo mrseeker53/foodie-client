@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import useTitle from '../../../hooks/useTitle';
+import useTitle from '../../hooks/useTitle';
 import MenuCard from './MenuCard';
 
 const Menu = () => {

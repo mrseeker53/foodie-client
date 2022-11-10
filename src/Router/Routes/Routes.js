@@ -4,9 +4,10 @@ import Blog from "../../Pages/Blog/Blog";
 import About from "../../Pages/Home/About/About";
 import Contact from "../../Pages/Home/Contact/Contact";
 import Home from "../../Pages/Home/Home/Home";
-import Menu from "../../Pages/Home/Menu/Menu";
+import Menu from "../../Pages/Menu/Menu";
 import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
+import MenuDetails from "../../Pages/Menu/MenuDetails";
 
 // Create react router
 const router = createBrowserRouter([
@@ -25,6 +26,11 @@ const router = createBrowserRouter([
             {
                 path: '/menu',
                 element: <Menu></Menu>
+            },
+            {
+                path: '/menu/:id',
+                element: <MenuDetails></MenuDetails>,
+                loader: ({ params }) => fetch(`https://foodie-server-one.vercel.app/menu/${params.id}`)
             },
             {
                 path: '/contact',
