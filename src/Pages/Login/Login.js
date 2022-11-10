@@ -1,11 +1,55 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import useTitle from '../../hooks/useTitle';
 import img from '../../assets/images/login/login.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
     // Dynamic title using hooks
     useTitle('Log In');
+
+    const { login } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/';
+
+    // Declare event handler
+    const handleLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        login(email, password)
+            .then(result => {
+                const user = result.user;
+
+
+                const currentUser = {
+                    email: user.email
+                }
+
+                console.log(currentUser);
+
+                // Det JWT token
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('genius-token', data.token);
+                        navigate(from, { replace: true });
+                    });
+
+            })
+            .catch(error => console.log(error));
+    }
 
     return (
         <div className="hero w-full my-20">
@@ -15,7 +59,7 @@ const Login = () => {
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-20">
                     <h1 className="text-5xl text-center font-bold">Login</h1>
-                    <form className="card-body">
+                    <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
