@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useTitle from '../../../hooks/useTitle';
-import MenuItem from './MenuItem';
+import MenuCard from './MenuCard';
 
 const Menu = () => {
     // Dynamic title using hooks
@@ -35,15 +35,14 @@ const Menu = () => {
                         </div>
                         <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                             {
-                                menus.map(menu => <MenuItem
+                                menus.map(menu => <MenuCard
                                     key={menu._id}
                                     menu={menu}
-                                ></MenuItem>)
+                                ></MenuCard>)
                             }
                         </div>
                     </>
             }
-
         </div>
     );
 };

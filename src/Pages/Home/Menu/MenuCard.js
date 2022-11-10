@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Destructure menu as object
-const MenuItem = ({ menu }) => {
+const MenuCard = ({ menu }) => {
 
     // Destructuring menu
     const { _id, img, title, price, rating, description } = menu;
@@ -25,4 +25,4 @@ const MenuItem = ({ menu }) => {
     );
 };
 
-export default MenuItem;
+export default MenuCard;

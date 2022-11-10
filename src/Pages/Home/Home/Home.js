@@ -1,7 +1,7 @@
 import React from 'react';
 import useTitle from '../../../hooks/useTitle';
-import Menu from '../Menu/Menu';
 import Slider from '../Slider/Slider';
+import MenuItems from './MenuItems';
 
 const Home = () => {
     // Dynamic title using hooks
@@ -10,7 +10,7 @@ const Home = () => {
     return (
         <div>
             <Slider></Slider>
-            <Menu></Menu>
+            <MenuItems></MenuItems>
         </div>
     );
 };
