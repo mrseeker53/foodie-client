@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import useTitle from '../../hooks/useTitle';
 import img from '../../assets/images/login/login.png';
-import toggleSpinner from '../../hooks/toggleSpinner';
+
 
 const SignUp = () => {
     // Dynamic title using hooks
