@@ -1,20 +1,21 @@
 import React from 'react';
+import './SliderItem.css';
 
 const SliderItem = ({ slide }) => {
     const { id, title, image, prev, next } = slide;
 
     return (
+        // set dynamic id
         <div id={`slide${id}`} className="carousel-item relative w-full">
             <div className='carousel-img'>
-                <img src={image} alt="" className="w-full rounded-xl" />
+                <img src={image} alt="" className="slide-img w-full rounded-xl" />
             </div>
-            <div className="absolute flex justify-end transform -translate-y-1/2 left-24 top-2/4">
-                <h1 className='text-6xl font-bold text-white'>
-                    {title}
-                </h1>
+            <div className="absolute flex justify-start transform -translate-y-1/2 w-2/5 left-24 top-1/2">
+
             </div>
-            <div className="absolute flex justify-start transform -translate-y-1/2 w-2/5 left-24 top-3/4">
-                <button className="btn btn-outline btn-warning">Warning</button>
+            <div className="absolute flex justify-start transform -translate-y-1/2 w-3/5 left-24 top-3/4">
+                <button className="btn btn-outline btn-primary mr-5 text-base-100">Explore</button>
+                <p className='text-4xl text-primary'>{title}</p>
             </div>
             <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
                 <a href={`#slide${prev}`} className="btn btn-circle mr-5">❮</a>
