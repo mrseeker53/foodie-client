@@ -22,7 +22,9 @@ const MenuDetails = () => {
                     <p className='text-lg'>{description}</p>
                 </div>
             </div>
-            <div>Review</div>
+            <div>
+                Review
+            </div>
         </div>
     );
 };
