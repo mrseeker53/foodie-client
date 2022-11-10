@@ -25,14 +25,12 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
 
-
                 const currentUser = {
                     email: user.email
                 }
-
                 console.log(currentUser);
 
-                // Det JWT token
+                // Get JWT token
                 fetch('http://localhost:5000/jwt', {
                     method: 'POST',
                     headers: {
