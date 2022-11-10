@@ -1,6 +1,7 @@
 import React from 'react';
 import './SliderItem.css';
 
+// Destructure slide as object
 const SliderItem = ({ slide }) => {
     const { id, title, image, prev, next } = slide;
 
