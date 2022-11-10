@@ -29,6 +29,25 @@ const Header = () => {
             <li className='font-semibold'>
                 <Link to='/blog'>Blog</Link>
             </li>
+            {
+                user?.uid ?
+                    <>
+                        <li className='font-semibold'>
+                            <Link to='/myreview'>My review</Link>
+                        </li>
+                        <li className='font-semibold'>
+                            <Link to='/addmenu'>Add menu</Link>
+                        </li>
+                        <span className='text-primary'>{user?.displayName}</span>
+                        <Link to='/login'>
+                            <button onClick={handleLogOut} className='btn btn-outline btn-primary px-5'>Log Out</button>
+                        </Link>
+                    </>
+                    :
+                    <Link className='navbar-end' to='/login'>
+                        <button className='btn btn-outline btn-primary px-5'>Log In</button>
+                    </Link>
+            }
         </>
 
 
@@ -52,21 +71,6 @@ const Header = () => {
                 <ul className="menu menu-horizontal p-0">
                     {menuItems}
                 </ul>
-            </div>
-            <div className="navbar-end">
-                {
-                    user?.uid ?
-                        <>
-                            <span className='text-primary'>{user?.displayName}</span>
-                            <Link className='ml-2' to='/login'>
-                                <button onClick={handleLogOut} className='btn btn-outline btn-primary px-5'>Log Out</button>
-                            </Link>
-                        </>
-                        :
-                        <Link to='/login'>
-                            <button className='btn btn-outline btn-primary px-5'>Log In</button>
-                        </Link>
-                }
             </div>
         </div>
     );

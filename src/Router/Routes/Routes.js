@@ -8,6 +8,10 @@ import Menu from "../../Pages/Menu/Menu";
 import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
 import MenuDetails from "../../Pages/Menu/MenuDetails";
+import MyReview from "../../Pages/MyReview/MyReview";
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import AddMenu from "../../Pages/AddMenu/AddMenu";
+
 
 // Create react router
 const router = createBrowserRouter([
@@ -47,6 +51,14 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
+            },
+            {
+                path: '/myreview',
+                element: <PrivateRoute><MyReview></MyReview></PrivateRoute>
+            },
+            {
+                path: '/addmenu',
+                element: <PrivateRoute><AddMenu></AddMenu></PrivateRoute>
             }
         ]
     }
