@@ -26,17 +26,17 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+
         login(email, password)
             .then(result => {
                 const user = result.user;
-
                 const currentUser = {
                     email: user.email
                 }
                 console.log(currentUser);
 
                 // Get JWT token
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://foodie-server-one.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -48,6 +48,7 @@ const Login = () => {
                         console.log(data);
                         localStorage.setItem('genius-token', data.token);
                         navigate(from, { replace: true });
+                        form.reset();
                     });
 
             })
