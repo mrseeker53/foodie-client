@@ -14,39 +14,50 @@ const Header = () => {
 
     const menuItems =
         <>
-            <li className='font-semibold'>
-                <Link to='/'>Home</Link>
-            </li>
-            <li className='font-semibold'>
-                <Link to='/about'>About</Link>
-            </li>
-            <li className='font-semibold'>
-                <Link to='/menu'>Menu</Link>
-            </li>
-            <li className='font-semibold'>
-                <Link to='/contact'>Contact</Link>
-            </li>
-            <li className='font-semibold'>
-                <Link to='/blog'>Blog</Link>
-            </li>
+
             {
                 user?.uid ?
                     <>
+                        <li className='font-semibold'>
+                            <Link to='/'>Home</Link>
+                        </li>
+                        <li className='font-semibold'>
+                            <Link to='/about'>About</Link>
+                        </li>
+                        <li className='font-semibold'>
+                            <Link to='/menu'>Menu</Link>
+                        </li>
+                        <li className='font-semibold'>
+                            <Link to='/support'>Support</Link>
+                        </li>
+                        <li className='font-semibold'>
+                            <Link to='/blog'>Blog</Link>
+                        </li>
                         <li className='font-semibold'>
                             <Link to='/myreview'>My review</Link>
                         </li>
                         <li className='font-semibold'>
                             <Link to='/addmenu'>Add menu</Link>
                         </li>
-                        <span className='text-primary'>{user?.displayName}</span>
-                        <Link to='/login'>
-                            <button onClick={handleLogOut} className='btn btn-outline btn-primary px-5'>Log Out</button>
-                        </Link>
                     </>
                     :
-                    <Link className='navbar-end' to='/login'>
-                        <button className='btn btn-outline btn-primary px-5'>Log In</button>
-                    </Link>
+                    <>
+                        <li className='font-semibold'>
+                            <Link to='/'>Home</Link>
+                        </li>
+                        <li className='font-semibold'>
+                            <Link to='/about'>About</Link>
+                        </li>
+                        <li className='font-semibold'>
+                            <Link to='/menu'>Menu</Link>
+                        </li>
+                        <li className='font-semibold'>
+                            <Link to='/support'>Support</Link>
+                        </li>
+                        <li className='font-semibold'>
+                            <Link to='/blog'>Blog</Link>
+                        </li>
+                    </>
             }
         </>
 
@@ -67,10 +78,24 @@ const Header = () => {
                     <img src={logo} alt="" />
                 </Link>
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div className="navbar-start hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     {menuItems}
                 </ul>
+            </div>
+            <div className='navbar-end'>
+                {
+                    user?.email ?
+                        <>
+                            <Link to='/login' className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                                <button onClick={handleLogOut} className='btn btn-outline btn-primary px-5'>Log Out</button>
+                            </Link>
+                        </>
+                        :
+                        <Link to='/login'>
+                            <button className='btn btn-outline btn-primary px-5'>Log In</button>
+                        </Link>
+                }
             </div>
         </div>
     );

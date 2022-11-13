@@ -1,10 +1,13 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const MenuDetails = () => {
     const { img, title, price, rating, description } = useLoaderData();
+
+    const { user } = useContext(AuthContext);
 
     return (
         <div className='my-20'>
@@ -23,7 +26,24 @@ const MenuDetails = () => {
                 </div>
             </div>
             <div>
-                Review
+                {
+                    user?.email ?
+                        <div>
+                            <div className="form-control mt-10">
+                                <label className="label">
+                                    <span className="label-text text-lg">Review</span>
+                                </label>
+                                <textarea className="textarea textarea-bordered h-44 w-1/2 my-4" placeholder="Leave your feedback"></textarea>
+                            </div>
+                            <button className='btn btn-primary'>Submit</button>
+                        </div>
+                        :
+                        <p className='mt-10 text-2xl'>Please login to give a review <Link to="/login">
+                            <button className='btn btn-primary px-8'>Log In</button>
+                        </Link>
+                        </p>
+
+                }
             </div>
         </div>
     );

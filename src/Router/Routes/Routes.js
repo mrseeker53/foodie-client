@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import Blog from "../../Pages/Blog/Blog";
 import About from "../../Pages/Home/About/About";
-import Contact from "../../Pages/Home/Contact/Contact";
 import Home from "../../Pages/Home/Home/Home";
 import Menu from "../../Pages/Menu/Menu";
 import Login from "../../Pages/Login/Login";
@@ -11,6 +10,7 @@ import MenuDetails from "../../Pages/Menu/MenuDetails";
 import MyReview from "../../Pages/MyReview/MyReview";
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import AddMenu from "../../Pages/AddMenu/AddMenu";
+import Support from "../../Pages/Home/Support/Support";
 
 
 // Create react router
@@ -37,8 +37,8 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://foodie-server-one.vercel.app/menu/${params.id}`)
             },
             {
-                path: '/contact',
-                element: <Contact></Contact>
+                path: '/support',
+                element: <Support></Support>
             },
             {
                 path: '/blog',
@@ -61,6 +61,15 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><AddMenu></AddMenu></PrivateRoute>
             }
         ]
+    },
+    // Route for 404 page
+    {
+        path: '*',
+        element:
+            <div className='text-secondary mt-5 pt-5'>
+                <h1 className='display-1'>404... Not Found!</h1>
+                <p className='lead lead-text'>: : The server can not find the requested resource</p>
+            </div>
     }
 ]);
 
