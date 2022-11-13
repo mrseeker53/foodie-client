@@ -4,7 +4,7 @@ import img from '../../../assets/images/others/support.png';
 
 const Support = () => {
     // Dynamic title using hooks
-    useTitle('Contact');
+    useTitle('Support');
 
     return (
         <div>

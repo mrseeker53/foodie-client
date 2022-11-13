@@ -31,14 +31,14 @@ const Footer = () => {
                 <span className="footer-title">Company</span>
                 <a href="/about" className="link link-hover">About</a>
                 <a href="/menu" className="link link-hover">Menu</a>
-                <a href="/contact" className="link link-hover">Contact</a>
+                <a href="/support" className="link link-hover">Support</a>
                 <a href="/blog" className="link link-hover">Blog</a>
             </div>
             <div>
                 <span className="footer-title">Legal</span>
-                <a href="/contact" className="link link-hover">Terms of use</a>
-                <a href="/contact" className="link link-hover">Privacy policy</a>
-                <a href="/contact" className="link link-hover">Cookie policy</a>
+                <a href="/support" className="link link-hover">Terms of use</a>
+                <a href="/support" className="link link-hover">Privacy policy</a>
+                <a href="/support" className="link link-hover">Cookie policy</a>
             </div>
         </footer>
     );
