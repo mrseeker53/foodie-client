@@ -66,9 +66,9 @@ const router = createBrowserRouter([
     {
         path: '*',
         element:
-            <div className='text-secondary mt-5 pt-5'>
-                <h1 className='display-1'>404... Not Found!</h1>
-                <p className='lead lead-text'>: : The server can not find the requested resource</p>
+            <div className='text-error text-center mt-44'>
+                <h1 className='text-5xl'>404... Not Found!</h1>
+                <p className='text-xl'>: : The server can not find the requested resource</p>
             </div>
     }
 ]);
