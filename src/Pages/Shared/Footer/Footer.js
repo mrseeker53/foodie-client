@@ -10,7 +10,8 @@ const Footer = () => {
         <footer className="footer p-32 bg-black text-white">
             <div>
                 <img src={logo} alt="" />
-                <p>Copyright © 2022 <br /> All rights reserved</p>
+                {/* Dynamic date */}
+                <p>Copyright © {new Date().getFullYear()} - All rights reserved</p>
             </div>
             <div>
                 <span className="footer-title">Connect</span>
