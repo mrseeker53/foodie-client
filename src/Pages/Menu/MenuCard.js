@@ -10,11 +10,11 @@ const MenuCard = ({ menu }) => {
     const { _id, img, title, price, rating, description } = menu;
 
     return (
-        <div className="card card-compact w-96 bg-base-100 shadow-xl">
+        <div className="card card-compact w-96 bg-base-100 shadow-xl ml-1">
             {/* Photo viewer */}
             <PhotoProvider>
                 <PhotoView src={img}>
-                    <figure><img src={img} alt="" /></figure>
+                    <figure><img className='h-64 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300' src={img} alt="" /></figure>
                 </PhotoView>
             </PhotoProvider>
             <div className="card-body">
